@@ -2,4 +2,13 @@
     <string name="app_name">SearchFriendsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="soporte">soporte</string>
+    <string name="en_caso_de_tener_problemas_comunicarse_con">En caso de tener problemas comunicarse con</string>
+    <string name="imagen">imagen</string>
+    <string name="search">Search</string>
+    <string name="friend">Friend</string>
+    <string name="ingresar_con_google">Ingresar con Google</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="invitado">Invitado</string>
 </resources>
