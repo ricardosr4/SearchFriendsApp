@@ -2,4 +2,11 @@
     <string name="app_name">SearchFriendsApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">Registrarse</string>
+    <string name="register_title">Registrarse</string>
+    <string name="name">Nombre</string>
+    <string name="email">Correo electronico</string>
+    <string name="crear_contrase_a">Crear contraseña</string>
+    <string name="btn_registrarse">Registrarse</string>
+    <string name="imageview_back_to_home">Imagen para regresar a home</string>
 </resources>
