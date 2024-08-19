@@ -1,4 +1,4 @@
-package com.example.searchfriendsapp.ui.fragment.home
+package com.example.searchfriendsapp.ui.fragment.home.presenter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
