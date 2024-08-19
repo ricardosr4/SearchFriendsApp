@@ -9,12 +9,12 @@
 
     <ImageButton
         android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/imageview"
+        android:contentDescription="@string/imageview_back_to_home"
         android:src="@drawable/img_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
