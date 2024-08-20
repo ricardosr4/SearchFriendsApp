@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.searchfriendsapp.databinding.ActivityPreLoginBinding
+import com.example.searchfriendsapp.ui.activity.homeContainer.HomeContainerActivity
 import com.example.searchfriendsapp.ui.activity.login.presenter.LoginActivity
 import com.example.searchfriendsapp.ui.activity.register.presenter.RegisterActivity
 
@@ -26,9 +27,10 @@ class PreLoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
-        //esto se activa cuando tengamos la navegacion hacia home
-//        binding.cvInvited.setOnClickListener {
-//            val intent = Intent(this, HomeContainerActivity::class.java)
-//        }
+
+        binding.cvInvited.setOnClickListener {
+            val intent = Intent(this, HomeContainerActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
