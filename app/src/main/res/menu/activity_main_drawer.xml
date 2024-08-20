@@ -3,11 +3,11 @@
     <group>
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/img_back"
+            android:icon="@drawable/icon_home"
             android:title="@string/home" />
         <item
             android:id="@+id/nav_Terminos"
-            android:icon="@drawable/img_back"
+            android:icon="@drawable/icon_terminos"
             android:title="@string/terminos_y_condiciones" />
 
     </group>
