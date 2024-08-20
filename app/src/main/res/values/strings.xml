@@ -20,4 +20,9 @@
     <string name="imageview_back_to_home">Imagen para regresar a home</string>
     <string name="contrase_a">Contraseña</string>
     <string name="entrar">Entrar</string>
+    <string name="aleatorio">Aleatorio</string>
+    <string name="perritos">Perritos</string>
+    <string name="nosotros">Nosotros</string>
+    <string name="buscar">Buscar</string>
+    <string name="adoptame">Adoptame</string>
 </resources>
