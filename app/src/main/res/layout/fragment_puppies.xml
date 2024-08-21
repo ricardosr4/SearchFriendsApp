@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="top"
+    android:orientation="vertical"
     android:background="@color/white"
     tools:context=".ui.fragment.puppies.PuppiesFragment">
 
@@ -26,6 +28,19 @@
         android:src="@drawable/img_paw"
         app:layout_constraintTop_toBottomOf="@+id/iv_search_friend_logo"
         app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_puppies"
+        android:contentDescription="contiene 3 imagenes horizontales de perritos que se repiten de forma vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="170dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_puppies"
         />
 
 
