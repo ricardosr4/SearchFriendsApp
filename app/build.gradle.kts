@@ -68,6 +68,8 @@ dependencies {
 
     implementation("androidx.drawerlayout:drawerlayout:1.2.0")
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    //RecyclerView
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

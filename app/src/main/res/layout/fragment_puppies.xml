@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".ui.fragment.puppies.PuppiesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/iv_search_friend_logo"
+        android:layout_width="227dp"
+        android:layout_height="48dp"
+        android:src="@drawable/search_friend_logotipo"
+        android:layout_marginTop="53dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <ImageView
+        android:id="@+id/image_paw"
+        android:layout_width="51dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/img_paw"
+        app:layout_constraintTop_toBottomOf="@+id/iv_search_friend_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
