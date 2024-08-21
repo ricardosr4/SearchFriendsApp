@@ -33,9 +33,13 @@
         tools:layout="@layout/fragment_puppies" />
     <fragment
         android:id="@+id/randomFragment"
-        android:name="com.example.searchfriendsapp.ui.fragment.random.RandomFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.random.presenter.RandomFragment"
         android:label="fragment_random"
-        tools:layout="@layout/fragment_random" />
+        tools:layout="@layout/fragment_random" >
+        <action
+            android:id="@+id/action_randomFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.searchfriendsapp.ui.fragment.search.SearchFragment"
