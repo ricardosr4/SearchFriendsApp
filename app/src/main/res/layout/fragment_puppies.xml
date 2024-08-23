@@ -9,39 +9,65 @@
     android:background="@color/white"
     tools:context=".ui.fragment.puppies.PuppiesFragment">
 
-    <ImageView
-        android:id="@+id/iv_search_friend_logo"
-        android:layout_width="227dp"
-        android:layout_height="48dp"
-        android:src="@drawable/search_friend_logotipo"
-        android:layout_marginTop="53dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintTop_toTopOf="parent"
+    <TextView
+        android:id="@+id/tv_title_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/search"
+        android:textColor="@color/title_search"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/friend"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_title_search"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/image_paw"
-        android:layout_width="51dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="35dp"
         android:src="@drawable/img_paw"
-        app:layout_constraintTop_toBottomOf="@+id/iv_search_friend_logo"
+        android:contentDescription="@string/imagen"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_search"
         />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.27" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_puppies"
-        android:contentDescription="contiene 3 imagenes horizontales de perritos que se repiten de forma vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:contentDescription="@string/contiene_3_imagenes_horizontales_de_perritos_que_se_repiten_de_forma_vertical"
+        android:layout_width="353dp"
+        android:layout_height="458dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_puppies"
+        app:layout_constraintTop_toBottomOf="@+id/guide_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

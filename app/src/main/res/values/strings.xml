@@ -31,4 +31,6 @@
     <string name="terminos_y_condiciones">Terminos y Condiciones</string>
     <string name="volver">Volver</string>
     <string name="ricardo_andres_soto_ramirez">Ricardo Andres Soto Ramirez</string>
+    <string name="imagen_perrito">imagen_perrito</string>
+    <string name="contiene_3_imagenes_horizontales_de_perritos_que_se_repiten_de_forma_vertical">contiene 3 imagenes horizontales de perritos que se repiten de forma vertical</string>
 </resources>
