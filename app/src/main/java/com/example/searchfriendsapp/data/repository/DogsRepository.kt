@@ -8,4 +8,7 @@ class DogsRepository(private val dogService: DogsDataSource = DogsDataSource()) 
     suspend fun getDog(): Response<DogResponse> {
         return dogService.getDog()
     }
+    suspend fun getDogs(): Response<DogResponse> {
+        return dogService.getDogs()
+    }
 }

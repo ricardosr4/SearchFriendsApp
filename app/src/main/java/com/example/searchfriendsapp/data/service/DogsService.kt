@@ -7,4 +7,7 @@ import retrofit2.http.GET
 interface DogsService {
     @GET("breeds/image/random")
     suspend fun getDog(): Response<DogResponse>
+
+    @GET("breeds/image/random/50")
+    suspend fun getDogs(): Response<DogResponse>
 }

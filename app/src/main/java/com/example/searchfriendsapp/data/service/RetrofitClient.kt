@@ -14,7 +14,11 @@ object RetrofitClient {
 
     private val dogService = retrofit.create<DogsService>()
 
-    fun getDog() : DogsService{
+    fun getDog(): DogsService {
         return dogService
+    }
+    fun getDogs(): DogsService {
+        return dogService
+
     }
 }
