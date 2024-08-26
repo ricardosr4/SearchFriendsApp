@@ -17,7 +17,6 @@ class HomeViewModel(private val repository: DogsRepository = DogsRepository()) :
     fun getListDogs() {
         CoroutineScope(Dispatchers.IO).launch {
             _homeState.postValue(HomeState.Loading)
-            try {
                 val response = repository.getDogs()
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -26,9 +25,7 @@ class HomeViewModel(private val repository: DogsRepository = DogsRepository()) :
                 } else {
                     _homeState.postValue(HomeState.Error("Error en la respuesta"))
                 }
-            } catch (e: Exception) {
-                _homeState.postValue(HomeState.Error("Excepción: ${e.message}"))
-            }
+
         }
     }
 }

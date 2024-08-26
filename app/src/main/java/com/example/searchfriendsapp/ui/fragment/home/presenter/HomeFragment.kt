@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.searchfriendsapp.R
@@ -13,8 +12,6 @@ import com.example.searchfriendsapp.databinding.FragmentHomeBinding
 import com.example.searchfriendsapp.ui.fragment.home.State.HomeState
 import com.example.searchfriendsapp.ui.fragment.home.adapter.AdapterHome
 import com.example.searchfriendsapp.ui.fragment.home.viewModel.HomeViewModel
-import com.example.searchfriendsapp.ui.fragment.random.state.RandomState
-import com.squareup.picasso.Picasso
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -60,11 +57,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun homeObserver() {
-        homeViewModel.homeState.observe(this) { data ->
-            when (data) {
+        homeViewModel.homeState.observe(viewLifecycleOwner) {
+            when (it) {
                 is HomeState.Success -> {
 
-                    initRecyclerView(data.success.message ?: listOf())
+                    initRecyclerView(it.success.message ?: listOf())
                 }
 
                 is HomeState.Loading -> {
