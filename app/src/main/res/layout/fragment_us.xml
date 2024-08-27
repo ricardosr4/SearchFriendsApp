@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/white"
     tools:context=".ui.fragment.us.UsFragment">
 
     <TextView
@@ -61,16 +63,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.27" />
+        app:layout_constraintGuide_percent="0.20" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_puppies"
-        android:layout_width="353dp"
+        android:id="@+id/rv_members"
+        android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:contentDescription="@string/contiene_3_imagenes_horizontales_de_perritos_que_se_repiten_de_forma_vertical"
+        android:contentDescription="@string/contains_1_image_of_a_member"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_rv_us"
@@ -79,6 +79,32 @@
         app:layout_constraintTop_toTopOf="@id/guide_line"
         />
 
+    <TextView
+        android:id="@+id/tv_about_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/comfortaa_regular"
+        android:text="@string/about_us"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintTop_toBottomOf="@+id/rv_members"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="233dp"
+        android:contentDescription="@string/contains_photos_about_us"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_rv_about_us"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_about_us"
+        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_2"

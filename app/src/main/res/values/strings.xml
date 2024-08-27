@@ -33,4 +33,8 @@
     <string name="ricardo_andres_soto_ramirez">Ricardo Andres Soto Ramirez</string>
     <string name="imagen_perrito">imagen_perrito</string>
     <string name="contiene_3_imagenes_horizontales_de_perritos_que_se_repiten_de_forma_vertical">contiene 3 imagenes horizontales de perritos que se repiten de forma vertical</string>
+    <string name="about_us">Sobre Nosotros</string>
+    <string name="contains_1_image_of_a_member">contiene 1 imagen de un integrante</string>
+    <string name="contains_photos_about_us">Contiene fotos sobre nosotros</string>
+    <string name="image_about_the_members">Imagen acerca de los integrantes</string>
 </resources>
