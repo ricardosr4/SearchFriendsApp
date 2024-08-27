@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="107dp"
-        android:layout_height="107dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
         android:contentDescription="@string/imagen_perrito"
         android:src="@drawable/img_examplepuppies"
         android:scaleType="centerCrop"
-        android:padding="05dp"/>
+        android:padding="02dp"/>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
