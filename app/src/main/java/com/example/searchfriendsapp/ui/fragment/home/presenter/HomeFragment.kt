@@ -17,12 +17,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val homeViewModel by viewModels<HomeViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-        call()
-        homeObserver()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +30,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        call()
+        homeObserver()
+
 
         binding.tvSearch.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
@@ -42,8 +40,6 @@ class HomeFragment : Fragment() {
         binding.tvRandom.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_randomFragment)
         }
-
-
     }
 
     private fun initRecyclerView(list: List<String>) {
