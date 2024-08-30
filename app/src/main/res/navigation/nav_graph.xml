@@ -57,7 +57,11 @@
         android:id="@+id/usFragment"
         android:name="com.example.searchfriendsapp.ui.fragment.us.UsFragment"
         android:label="fragment_us"
-        tools:layout="@layout/fragment_us" />
+        tools:layout="@layout/fragment_us" >
+        <action
+            android:id="@+id/action_usFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/terminosFragment"
         android:name="com.example.searchfriendsapp.ui.fragment.TerminosFragment"
