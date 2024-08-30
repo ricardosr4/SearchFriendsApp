@@ -40,6 +40,9 @@ class HomeFragment : Fragment() {
         binding.tvPuppies.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_puppiesFragment)
         }
+        binding.tvUs.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_usFragment)
+        }
     }
     private fun initRecyclerView(list: List<String>) {
         val adapter = AdapterHome(list)
