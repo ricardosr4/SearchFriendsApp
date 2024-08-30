@@ -30,7 +30,11 @@
         android:id="@+id/puppiesFragment"
         android:name="com.example.searchfriendsapp.ui.fragment.puppies.PuppiesFragment"
         android:label="fragment_puppies"
-        tools:layout="@layout/fragment_puppies" />
+        tools:layout="@layout/fragment_puppies" >
+        <action
+            android:id="@+id/action_puppiesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/randomFragment"
         android:name="com.example.searchfriendsapp.ui.fragment.random.presenter.RandomFragment"
