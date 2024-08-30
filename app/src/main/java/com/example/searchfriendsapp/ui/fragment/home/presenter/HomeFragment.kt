@@ -37,6 +37,9 @@ class HomeFragment : Fragment() {
         binding.tvRandom.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_randomFragment)
         }
+        binding.tvPuppies.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_puppiesFragment)
+        }
     }
     private fun initRecyclerView(list: List<String>) {
         val adapter = AdapterHome(list)
