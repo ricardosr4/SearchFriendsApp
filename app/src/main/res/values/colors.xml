@@ -6,4 +6,5 @@
     <color name="btn_register">#E97F01</color>
     <color name="btn_invited">#962E2E</color>
     <color name="title_search">#E97F01</color>
+    <color name="btn_detail">#DAD6D6</color>
 </resources>
