@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.ItemRvHomeBinding
 import com.squareup.picasso.Picasso
