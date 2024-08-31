@@ -31,17 +31,15 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar la vista con la URL de la imagen
+
         setupView()
     }
 
     private fun setupView() {
-        // Obtener la URL de la imagen del argumento y cargarla en el ImageView
         arguments?.getString("imageUrl")?.let { imageUrl ->
             Picasso.get().load(imageUrl).into(binding.ivDetails)
         }
 
-        // Configurar el botón de regreso
         binding.ivBack.setOnClickListener {
             navigateBack()
         }
