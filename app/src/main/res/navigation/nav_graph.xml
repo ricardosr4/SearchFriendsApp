@@ -43,6 +43,12 @@
         <action
             android:id="@+id/action_randomFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_randomFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+        <action
+            android:id="@+id/action_randomFragment_to_detailFragment22"
+            app:destination="@id/detailFragment2" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -67,4 +73,13 @@
         android:name="com.example.searchfriendsapp.ui.fragment.TerminosFragment"
         android:label="fragment_terminos"
         tools:layout="@layout/fragment_terminos" />
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.example.searchfriendsapp.ui.fragment.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment2_to_randomFragment"
+            app:destination="@id/randomFragment" />
+    </fragment>
 </navigation>

@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.searchfriendsapp.R
+import com.example.searchfriendsapp.databinding.FragmentDetailBinding
+import com.squareup.picasso.Picasso
 
 class DetailFragment : Fragment() {
+    private lateinit var binding: FragmentDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +23,36 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+    ): View {
+        binding = FragmentDetailBinding.inflate(layoutInflater)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Configurar la vista con la URL de la imagen
+        setupView()
+    }
+
+    private fun setupView() {
+        // Obtener la URL de la imagen del argumento y cargarla en el ImageView
+        arguments?.getString("imageUrl")?.let { imageUrl ->
+            Picasso.get().load(imageUrl).into(binding.ivDetails)
+        }
+
+        // Configurar el botón de regreso
+        binding.ivBack.setOnClickListener {
+            navigateBack()
+        }
+
+        binding.tvBack.setOnClickListener {
+            navigateBack()
+        }
+    }
+
+    private fun navigateBack() {
+        findNavController().navigate(R.id.action_detailFragment2_to_randomFragment)
+    }
 }
+
