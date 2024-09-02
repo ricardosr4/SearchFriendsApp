@@ -51,7 +51,7 @@ class RandomFragment : Fragment() {
                     val imageUrl = data.success.message ?: ""
                     Picasso.get().load(imageUrl).into(binding.ivDog)
 
-                    // Navegar a DetailFragment con la URL de la imagen
+
                     binding.ivDog.setOnClickListener {
                         val bundle = Bundle().apply {
                             putString("imageUrl", imageUrl)
@@ -62,7 +62,7 @@ class RandomFragment : Fragment() {
                     reloadImage()
                 }
                 is RandomState.Loading -> {
-                    // Manejo del estado de carga (si es necesario)
+
                 }
                 is RandomState.Error -> {
                     Toast.makeText(context, "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
