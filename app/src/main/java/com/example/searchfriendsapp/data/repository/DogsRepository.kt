@@ -12,4 +12,7 @@ class DogsRepository(private val dogDataSource: DogsDataSource = DogsDataSource(
     suspend fun getDogs(): Response<DogsResponse> {
         return dogDataSource.getDogs()
     }
+    suspend fun getDogsByBreed(breed: String): Response<DogResponse> {
+        return dogDataSource.getDogsByBreed(breed)
+    }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.search.SearchFragment">
+    tools:context=".ui.fragment.search.presenter.SearchFragment">
 
     <TextView
         android:id="@+id/search"
@@ -70,7 +70,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/imagen"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_example" />
+            tools:src="@drawable/img_example" />
 
     </androidx.cardview.widget.CardView>
 

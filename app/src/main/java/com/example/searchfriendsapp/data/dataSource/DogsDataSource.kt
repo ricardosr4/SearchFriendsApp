@@ -13,4 +13,8 @@ class DogsDataSource(private val dogService: DogsService = RetrofitClient.dogSer
     suspend fun getDogs(): Response<DogsResponse> {
         return dogService.getDogs()
     }
+    suspend fun getDogsByBreed(breed: String): Response<DogResponse> {
+        return dogService.getDogByBreed(breed)
+    }
+
 }
