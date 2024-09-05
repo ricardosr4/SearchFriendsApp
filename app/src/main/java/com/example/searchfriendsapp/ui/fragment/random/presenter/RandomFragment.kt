@@ -17,13 +17,6 @@ import com.squareup.picasso.Picasso
 class RandomFragment : Fragment() {
     private lateinit var binding: FragmentRandomBinding
     private val randomViewModel by viewModels<RandomViewModel>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        call()
-        initObserver()
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +29,37 @@ class RandomFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        call()
+        initObserver()
+        navigation()
+    }
+
+
+
+
+    private fun initObserver() {
+        randomViewModel.randomState.observe(viewLifecycleOwner) { data ->
+            when (data) {
+                is RandomState.Success -> {
+                    loadImage(data)
+                    putExtra(imageUrl = data.success.message ?: "")
+                    reloadImage()
+                }
+
+                is RandomState.Loading -> {
+                    showLoading()
+
+                }
+
+                is RandomState.Error -> {
+                    hideLoading()
+                    Toast.makeText(context, "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+    private fun navigation() {
+
         binding.ivBack.setOnClickListener {
             findNavController().navigate(R.id.action_randomFragment_to_homeFragment)
         }
@@ -44,28 +68,12 @@ class RandomFragment : Fragment() {
         }
     }
 
-    private fun initObserver() {
-        randomViewModel.randomState.observe(this) { data ->
-            when (data) {
-                is RandomState.Success -> {
-                    loadImage(data)
-                    putExtra(imageUrl = data.success.message ?: "")
-                    reloadImage()
-                }
-                is RandomState.Loading -> {
-
-                }
-                is RandomState.Error -> {
-                    Toast.makeText(context, "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
     private fun loadImage(data: RandomState.Success) {
         val imageUrl = data.success.message ?: ""
         Picasso.get().load(imageUrl).into(binding.ivDog)
     }
-    private fun putExtra(imageUrl:String){
+
+    private fun putExtra(imageUrl: String) {
         binding.ivDog.setOnClickListener {
             val bundle = Bundle().apply {
                 putString("imageUrl", imageUrl)
@@ -82,6 +90,14 @@ class RandomFragment : Fragment() {
         binding.imagePaw.setOnClickListener {
             randomViewModel.getRandomDog()
         }
+    }
+    private fun showLoading() {
+        binding.progressCircular.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.progressCircular
+            .visibility = View.GONE
     }
 
 }
