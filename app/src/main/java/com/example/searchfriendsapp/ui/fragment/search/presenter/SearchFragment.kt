@@ -20,21 +20,11 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private val searchViewModel by viewModels<SearchViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSearchBinding.inflate(layoutInflater)
-
-
-
         return binding.root
     }
 
@@ -43,7 +33,33 @@ class SearchFragment : Fragment() {
 
         setupSearchView()
         searchObserver()
+        navigation()
 
+    }
+
+    private fun searchObserver() {
+        searchViewModel.searchState.observe(viewLifecycleOwner) { data ->
+            when (data) {
+                is SearchState.Success -> {
+                    loadImage(data)
+                    putExtra(imageUrl = data.data.message ?: "")
+
+                }
+
+                is SearchState.Loading -> {
+                    showLoading()
+                }
+
+                is SearchState.Error -> {
+                    hideLoading()
+                    Toast.makeText(context, "Ups! no hay resultados", Toast.LENGTH_SHORT).show()
+                    binding.ivSearch.setImageResource(R.drawable.img_not_result)
+                }
+            }
+        }
+    }
+
+    private fun navigation() {
 
         binding.ivBack.setOnClickListener {
             findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
@@ -53,50 +69,40 @@ class SearchFragment : Fragment() {
         }
     }
 
-
-    private fun searchObserver() {
-        searchViewModel.searchState.observe(viewLifecycleOwner) { data ->
-            when (data) {
-                is SearchState.Success -> {
-                    val imageUrl = data.data.message ?: ""
-                    Picasso.get().load(imageUrl).into(binding.ivSearch)
-
-
-                }
-
-                is SearchState.Loading -> {
-                    showLoading()
-
-
-                }
-
-                is SearchState.Error -> {
-                    Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
-                }
+    private fun putExtra(imageUrl: String) {
+        binding.ivSearch.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString("imageUrl", imageUrl)
             }
+            findNavController().navigate(R.id.action_searchFragment_to_detailFragment2, bundle)
         }
     }
 
+    private fun loadImage(data: SearchState.Success) {
+        val imageUrl = data.data.message ?: ""
+        Picasso.get().load(imageUrl).into(binding.ivSearch)
+    }
+
     private fun showLoading() {
-        binding.progressCircular.visibility = View.VISIBLE // Muestra el ProgressBar
+        binding.progressCircular.visibility = View.VISIBLE
     }
 
     private fun hideLoading() {
         binding.progressCircular
-            .visibility = View.GONE // Oculta el ProgressBar
+            .visibility = View.GONE
     }
 
     private fun setupSearchView() {
         binding.svDog.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
-                    searchViewModel.searchDogByBreed(it) // Envía la búsqueda al ViewModel
+                    searchViewModel.searchDogByBreed(it.lowercase())
                 }
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // Puedes manejar las búsquedas mientras el usuario escribe si lo deseas
+
                 return false
             }
         })
