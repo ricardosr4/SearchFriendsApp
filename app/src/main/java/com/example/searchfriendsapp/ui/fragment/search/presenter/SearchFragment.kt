@@ -55,25 +55,37 @@ class SearchFragment : Fragment() {
 
 
     private fun searchObserver() {
-        searchViewModel.searchState.observe(viewLifecycleOwner) {data->
+        searchViewModel.searchState.observe(viewLifecycleOwner) { data ->
             when (data) {
                 is SearchState.Success -> {
                     val imageUrl = data.data.message ?: ""
                     Picasso.get().load(imageUrl).into(binding.ivSearch)
 
+
                 }
 
                 is SearchState.Loading -> {
+                    showLoading()
+
 
                 }
 
                 is SearchState.Error -> {
                     Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
-
                 }
             }
         }
     }
+
+    private fun showLoading() {
+        binding.progressCircular.visibility = View.VISIBLE // Muestra el ProgressBar
+    }
+
+    private fun hideLoading() {
+        binding.progressCircular
+            .visibility = View.GONE // Oculta el ProgressBar
+    }
+
     private fun setupSearchView() {
         binding.svDog.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
