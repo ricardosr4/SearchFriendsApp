@@ -48,15 +48,24 @@ class RandomFragment : Fragment() {
         randomViewModel.randomState.observe(this) { data ->
             when (data) {
                 is RandomState.Success -> {
-                    Picasso.get().load(data.success.message ?: "").into(binding.ivDog)
+                    val imageUrl = data.success.message ?: ""
+                    Picasso.get().load(imageUrl).into(binding.ivDog)
+
+
+                    binding.ivDog.setOnClickListener {
+                        val bundle = Bundle().apply {
+                            putString("imageUrl", imageUrl)
+                        }
+                        findNavController().navigate(R.id.action_randomFragment_to_detailFragment2, bundle)
+                    }
+
                     reloadImage()
                 }
+                is RandomState.Loading -> {
 
-                is RandomState.Loading -> {}
-
+                }
                 is RandomState.Error -> {
                     Toast.makeText(context, "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
-
                 }
             }
         }

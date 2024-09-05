@@ -45,7 +45,12 @@ class HomeFragment : Fragment() {
         }
     }
     private fun initRecyclerView(list: List<String>) {
-        val adapter = AdapterHome(list)
+        val adapter = AdapterHome(list) { imageUrl ->
+            val bundle = Bundle().apply {
+                putString("imageUrl", imageUrl)
+            }
+            findNavController().navigate(R.id.action_homeFragment_to_detailFragment2, bundle)
+        }
         binding.recyclerHome.adapter = adapter
     }
 
