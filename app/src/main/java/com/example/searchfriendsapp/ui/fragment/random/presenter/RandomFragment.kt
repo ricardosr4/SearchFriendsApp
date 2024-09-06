@@ -1,5 +1,6 @@
 package com.example.searchfriendsapp.ui.fragment.random.presenter
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,7 +18,6 @@ import com.squareup.picasso.Picasso
 class RandomFragment : Fragment() {
     private lateinit var binding: FragmentRandomBinding
     private val randomViewModel by viewModels<RandomViewModel>()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,10 +32,8 @@ class RandomFragment : Fragment() {
         call()
         initObserver()
         navigation()
+        reloadImage()
     }
-
-
-
 
     private fun initObserver() {
         randomViewModel.randomState.observe(viewLifecycleOwner) { data ->
@@ -43,12 +41,10 @@ class RandomFragment : Fragment() {
                 is RandomState.Success -> {
                     loadImage(data)
                     putExtra(imageUrl = data.success.message ?: "")
-                    reloadImage()
                 }
 
                 is RandomState.Loading -> {
                     showLoading()
-
                 }
 
                 is RandomState.Error -> {
@@ -58,14 +54,24 @@ class RandomFragment : Fragment() {
             }
         }
     }
-    private fun navigation() {
 
+    private fun navigation() {
         binding.ivBack.setOnClickListener {
             findNavController().navigate(R.id.action_randomFragment_to_homeFragment)
         }
         binding.tvBack.setOnClickListener {
             findNavController().navigate(R.id.action_randomFragment_to_homeFragment)
         }
+    }
+
+    private fun animateFootprint() {
+        val animator = ValueAnimator.ofFloat(0f, 360f)
+        animator.addUpdateListener { valueAnimator ->
+            val animatedValue = valueAnimator.animatedValue as Float
+            binding.imagePaw.rotationY = animatedValue
+        }
+        animator.duration = 1000
+        animator.start()
     }
 
     private fun loadImage(data: RandomState.Success) {
@@ -89,15 +95,15 @@ class RandomFragment : Fragment() {
     private fun reloadImage() {
         binding.imagePaw.setOnClickListener {
             randomViewModel.getRandomDog()
+            animateFootprint()
         }
     }
+
     private fun showLoading() {
         binding.progressCircular.visibility = View.VISIBLE
     }
 
     private fun hideLoading() {
-        binding.progressCircular
-            .visibility = View.GONE
+        binding.progressCircular.visibility = View.GONE
     }
-
 }
