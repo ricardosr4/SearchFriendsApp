@@ -1,6 +1,7 @@
 package com.example.searchfriendsapp.ui.activity.preLogin.presenter
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.searchfriendsapp.databinding.ActivityPreLoginBinding
@@ -16,6 +17,7 @@ class PreLoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         navigation()
+        sendEmailSupport()
     }
 
     private fun navigation() {
@@ -31,6 +33,14 @@ class PreLoginActivity : AppCompatActivity() {
         binding.cvInvited.setOnClickListener {
             val intent = Intent(this, HomeContainerActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun sendEmailSupport() {
+        binding.tvSupport.setOnClickListener {
+            val emailIntent =
+                Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "rla.support@gmail.com", null))
+            startActivity(Intent.createChooser(emailIntent, "enviar email..."))
         }
     }
 }
