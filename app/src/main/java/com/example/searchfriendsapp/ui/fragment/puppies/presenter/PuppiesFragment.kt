@@ -1,4 +1,4 @@
-package com.example.searchfriendsapp.ui.fragment.puppies
+package com.example.searchfriendsapp.ui.fragment.puppies.presenter
 
 import android.animation.ValueAnimator
 import android.os.Bundle

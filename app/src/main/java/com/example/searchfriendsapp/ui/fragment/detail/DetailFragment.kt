@@ -20,6 +20,7 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetailBinding.inflate(layoutInflater)
+
         return binding.root
     }
 
@@ -35,5 +36,7 @@ class DetailFragment : Fragment() {
             Picasso.get().load(imageUrl).into(binding.ivDetails)
         }
     }
+
+
 }
 

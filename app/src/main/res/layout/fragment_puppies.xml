@@ -7,7 +7,7 @@
     android:layout_gravity="top"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ui.fragment.puppies.PuppiesFragment">
+    tools:context=".ui.fragment.puppies.presenter.PuppiesFragment">
 
     <TextView
         android:id="@+id/tv_title_search"
