@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -33,7 +34,8 @@ class SearchFragment : Fragment() {
 
         setupSearchView()
         searchObserver()
-        navigation()
+        setupOnClick()
+//        navigation()
 
     }
 
@@ -59,15 +61,15 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun navigation() {
-
-        binding.ivBack.setOnClickListener {
-            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
-        }
-        binding.tvBack.setOnClickListener {
-            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
-        }
-    }
+//    private fun navigation() {
+//
+//        binding.ivBack.setOnClickListener {
+//            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+//        }
+//        binding.tvBack.setOnClickListener {
+//            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+//        }
+//    }
 
     private fun putExtra(imageUrl: String) {
         binding.ivSearch.setOnClickListener {
@@ -108,5 +110,31 @@ class SearchFragment : Fragment() {
         })
     }
 
+    private fun setupOnClick() {
+        // Deshabilitamos ambos botones al principio
+        binding.btBackWhiteTermsAndConditions.isEnabled = false
+        binding.btBackBlackTermsAndConditions.isEnabled = true
+
+        // Configuramos el listener para el botón de regresar
+        binding.btBackBlackTermsAndConditions.setOnClickListener {
+            binding.btBackBlackTermsAndConditions.isEnabled = false
+
+            // Animamos el botón hacia la derecha
+            binding.btBackBlackTermsAndConditions.animate().apply {
+                translationX(300f)
+                interpolator = AccelerateDecelerateInterpolator()
+                duration = 500 // Ajuste a la duración de la animación
+
+                // Cuando termine la animación, navegamos al HomeFragment
+                withEndAction {
+                    // Navegamos al homeFragment después de la animación
+                    findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+
+                    // Habilitamos el botón de nuevo por si el usuario regresa
+                    binding.btBackBlackTermsAndConditions.isEnabled = true
+                }
+            }
+        }
+    }
 
 }
