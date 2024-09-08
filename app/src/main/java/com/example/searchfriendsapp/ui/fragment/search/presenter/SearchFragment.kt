@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -33,7 +34,8 @@ class SearchFragment : Fragment() {
 
         setupSearchView()
         searchObserver()
-        navigation()
+        setupOnClick()
+//        navigation()
 
     }
 
@@ -59,15 +61,15 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun navigation() {
-
-        binding.ivBack.setOnClickListener {
-            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
-        }
-        binding.tvBack.setOnClickListener {
-            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
-        }
-    }
+//    private fun navigation() {
+//
+//        binding.ivBack.setOnClickListener {
+//            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+//        }
+//        binding.tvBack.setOnClickListener {
+//            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+//        }
+//    }
 
     private fun putExtra(imageUrl: String) {
         binding.ivSearch.setOnClickListener {
@@ -108,5 +110,27 @@ class SearchFragment : Fragment() {
         })
     }
 
+    private fun setupOnClick() {
+        binding.btBackWhiteTermsAndConditions.isEnabled = false
+        binding.btBackBlackTermsAndConditions.isEnabled = true
+
+        binding.btBackBlackTermsAndConditions.setOnClickListener {
+            binding.btBackBlackTermsAndConditions.isEnabled = false
+
+            binding.btBackBlackTermsAndConditions.animate().apply {
+                translationX(300f)
+                interpolator = AccelerateDecelerateInterpolator()
+                duration = 500
+
+                withEndAction {
+
+                    findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
+
+
+                    binding.btBackBlackTermsAndConditions.isEnabled = true
+                }
+            }
+        }
+    }
 
 }
