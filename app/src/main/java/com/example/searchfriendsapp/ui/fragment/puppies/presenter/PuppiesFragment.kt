@@ -1,5 +1,6 @@
-package com.example.searchfriendsapp.ui.fragment.detail
+package com.example.searchfriendsapp.ui.fragment.puppies.presenter
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,33 +9,35 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.navigation.fragment.findNavController
 import com.example.searchfriendsapp.R
-import com.example.searchfriendsapp.databinding.FragmentDetailBinding
-import com.squareup.picasso.Picasso
+import com.example.searchfriendsapp.databinding.FragmentPuppiesBinding
 
-class DetailFragment : Fragment() {
-    private lateinit var binding: FragmentDetailBinding
+class PuppiesFragment : Fragment() {
+    private lateinit var binding: FragmentPuppiesBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDetailBinding.inflate(layoutInflater)
-
+        binding = FragmentPuppiesBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setupView()
         setupOnClick()
-
+        animateFootprint()
+        super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun setupView() {
-        arguments?.getString("imageUrl")?.let { imageUrl ->
-            Picasso.get().load(imageUrl).into(binding.ivDetails)
+    private fun animateFootprint() {
+        binding.imagePaw.setOnClickListener {
+            val animator = ValueAnimator.ofFloat(0f, 360f)
+            animator.addUpdateListener { valueAnimator ->
+                val animatedValue = valueAnimator.animatedValue as Float
+                binding.imagePaw.rotationY = animatedValue
+            }
+            animator.duration = 1000
+            animator.start()
         }
     }
 
@@ -53,16 +56,14 @@ class DetailFragment : Fragment() {
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
 
+
                 withEndAction {
 
-                    findNavController().navigate(R.id.action_detailFragment2_to_homeFragment)
-
+                    findNavController().navigate(R.id.action_puppiesFragment_to_homeFragment)
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
         }
+
     }
-
-
 }
-

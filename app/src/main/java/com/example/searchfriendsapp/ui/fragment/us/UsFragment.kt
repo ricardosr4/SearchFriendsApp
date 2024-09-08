@@ -23,7 +23,7 @@ class UsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentUsBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -35,11 +35,6 @@ class UsFragment : Fragment() {
             findNavController().navigate(R.id.action_usFragment_to_homeFragment)
         }
 
-        binding.ivBack.setOnClickListener {
-            findNavController().navigate(R.id.action_usFragment_to_homeFragment)
-        }
-        binding.tvBack.setOnClickListener {
-            findNavController().navigate(R.id.action_usFragment_to_homeFragment)
-        }
+
     }
 }

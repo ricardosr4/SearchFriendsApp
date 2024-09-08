@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/puppiesFragment"
-        android:name="com.example.searchfriendsapp.ui.fragment.puppies.PuppiesFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.puppies.presenter.PuppiesFragment"
         android:label="fragment_puppies"
         tools:layout="@layout/fragment_puppies" >
         <action
@@ -87,5 +87,8 @@
         <action
             android:id="@+id/action_detailFragment2_to_randomFragment"
             app:destination="@id/randomFragment" />
+        <action
+            android:id="@+id/action_detailFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
