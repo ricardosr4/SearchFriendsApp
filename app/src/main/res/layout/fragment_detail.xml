@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.fragment.detail.DetailFragment">
 
     <ImageView
         android:id="@+id/iv_details"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="370dp"
         android:contentDescription="@string/imagen"
         android:scaleType="centerCrop"
         android:src="@drawable/img_example"
@@ -20,33 +21,20 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_details"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="550dp"
         app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="350dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/adoptar"
-            android:textSize="35sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/imagen"
-            android:src="@drawable/img_logo_detail" />
-
         <LinearLayout
+            android:id="@+id/ly_details"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:background="@color/white"
             android:padding="10dp">
 
             <androidx.cardview.widget.CardView
@@ -130,55 +118,87 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/img_paw" />
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
-
         <TextView
-            android:id="@+id/info_detail"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_gravity="bottom"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginBottom="130dp"
-            android:text="Cualquier dieta deve ser apropiada para el perro. Deve haber agua fresca y limpia en todo momento."
-            android:textColor="#9F9393"
-            android:textSize="20sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/adoptar"
+            android:textColor="@color/black"
+            android:fontFamily="@font/comfortaa_regular"
+            android:textSize="35sp"
+            android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_back_white_terms_and_conditions"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:background="@drawable/btn_back_whith"
-            android:drawableEnd="@drawable/img_back"
-            android:paddingEnd="30dp"
-            android:layout_gravity="bottom"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="20dp" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_back_black_terms_and_conditions"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="150dp"
-            android:background="@drawable/btn_back_black"
-            android:paddingStart="20dp"
-            android:text="@string/volver"
-            android:layout_gravity="bottom"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="20dp" />
-
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/imagen"
+            android:src="@drawable/img_logo_detail" />
     </androidx.cardview.widget.CardView>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="top"
+        android:elevation="@dimen/cardview_default_elevation"
+        app:layout_constraintBottom_toBottomOf="@+id/cv_details"
+        android:layout_marginBottom="40dp"
+        >
+    <androidx.appcompat.widget.AppCompatButton
 
+        android:id="@+id/bt_back_white_terms_and_conditions"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_back_whith"
+        android:drawableEnd="@drawable/img_back"
+        android:paddingEnd="30dp"
+        android:translationZ="10dp"
+        android:contentDescription="Este es un boton para regresar atras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_back_black_terms_and_conditions"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_back_black"
+        android:contentDescription="Este es un boton para regresar atras"
+        android:paddingStart="20dp"
+        android:text="@string/volver"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:translationZ="15dp"
+        app:layout_constraintTop_toTopOf="@id/bt_back_white_terms_and_conditions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/bt_back_white_terms_and_conditions"
+        />
 
+    </FrameLayout>
+    <TextView
+        android:id="@+id/info_detail"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="10dp"
+        android:text="Cualquier dieta deve ser apropiada para el perro. Deve haber agua fresca y limpia en todo momento."
+        android:textColor="#AAA2A2"
+        android:textSize="20sp"
+        android:elevation="@dimen/cardview_default_elevation"
+        app:layout_constraintTop_toTopOf="@id/cv_details"
+        app:layout_constraintBottom_toBottomOf="@id/cv_details"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
