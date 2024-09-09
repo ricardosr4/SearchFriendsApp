@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "418547007530",
+    "project_id": "searchfriends-52f75",
+    "storage_bucket": "searchfriends-52f75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418547007530:android:0053fb2dc32d55f6ac4353",
+        "android_client_info": {
+          "package_name": "com.example.searchfriendsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN_LCN0vyfvZ0hfFM1ac2pNSiz7Rxdh1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
