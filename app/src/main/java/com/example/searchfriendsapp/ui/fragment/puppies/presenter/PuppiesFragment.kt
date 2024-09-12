@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
@@ -15,27 +16,35 @@ import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentPuppiesBinding
 
 class PuppiesFragment : Fragment() {
-    private lateinit var binding: FragmentPuppiesBinding
+    //private lateinit var binding: FragmentPuppiesBinding
+    private var _binding: FragmentPuppiesBinding? = null
+    private val binding get() = _binding!! //Solo usamos binding cuando no es nulo
+
+    private val viewModel: DogViewModel by activityViewModels()
+    private lateinit var adapter: DogImageAdapter
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPuppiesBinding.inflate(layoutInflater)
+        _binding = FragmentPuppiesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setupOnClick()
-        animateFootprint()
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = DogImageAdapter(emptyList())
-        recyclerView.LayoutManager = GridLayoutManager(context,3)
-        recyclerView.adpter = adapter
+        setupOnClick()
+        animateFootprint()
 
-        viewModel.images.observe(viewLifecycleOwner){ images ->
+
+
+        adapter = DogImageAdapter(emptyList())
+        binding.rvPuppies.layoutManager = GridLayoutManager(context, 3)
+        binding.rvPuppies.adapter = adapter
+
+        viewModel.images.observe(viewLifecycleOwner) { images ->
             adapter.updateData(images)
 
         }
@@ -75,7 +84,13 @@ class PuppiesFragment : Fragment() {
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
+
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null //Limpiar el binding cuando la vista es destruida.
 
     }
 }
