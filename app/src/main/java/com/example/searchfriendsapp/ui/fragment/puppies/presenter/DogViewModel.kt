@@ -7,11 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.searchfriendsapp.data.repository.DogsRepository
 import kotlinx.coroutines.launch
 
-class PuppiesViewModel : ViewModel {
+class DogViewModel : ViewModel() {
     private val repository = DogsRepository()
 
     private val _images = MutableLiveData<List<String>>()
-    val images = LiveData<List<String>> get() = _images
+    val images: LiveData<List<String>> get() = _images
 
     init {
         fetchDogImages()

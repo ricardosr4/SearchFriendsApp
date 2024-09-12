@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentPuppiesBinding
 
@@ -27,6 +30,15 @@ class PuppiesFragment : Fragment() {
         setupOnClick()
         animateFootprint()
         super.onViewCreated(view, savedInstanceState)
+
+        adapter = DogImageAdapter(emptyList())
+        recyclerView.LayoutManager = GridLayoutManager(context,3)
+        recyclerView.adpter = adapter
+
+        viewModel.images.observe(viewLifecycleOwner){ images ->
+            adapter.updateData(images)
+
+        }
     }
 
     private fun animateFootprint() {
