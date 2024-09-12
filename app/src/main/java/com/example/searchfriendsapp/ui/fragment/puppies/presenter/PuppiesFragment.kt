@@ -73,7 +73,7 @@ class PuppiesFragment : Fragment() {
 
 
             binding.btBackBlackTermsAndConditions.animate().apply {
-                translationX(300f)
+                translationX(-300f) //se cambia a negativo para mover a la izquierda
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
 
