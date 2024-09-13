@@ -1,8 +1,12 @@
 package com.example.searchfriendsapp.data.response
 
 import android.hardware.biometrics.BiometricManager.Strings
+import com.google.gson.annotations.SerializedName
 
 class DogImageResponse(
-    val message: List<String>,
-    val status: String
+    @SerializedName("message")
+    val message: List<String>?,
+
+    @SerializedName("status")
+    val status: String?
 )
