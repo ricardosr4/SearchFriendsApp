@@ -1,4 +1,4 @@
-package com.example.searchfriendsapp.ui.fragment.puppies.presenter
+package com.example.searchfriendsapp.ui.fragment.puppies.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

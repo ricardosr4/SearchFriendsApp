@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentPuppiesBinding
+import com.example.searchfriendsapp.ui.fragment.puppies.adapter.DogImageAdapter
+import com.example.searchfriendsapp.ui.fragment.puppies.viewModel.DogViewModel
 
 class PuppiesFragment : Fragment() {
     //private lateinit var binding: FragmentPuppiesBinding

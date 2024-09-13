@@ -1,4 +1,4 @@
-package com.example.searchfriendsapp.ui.fragment.puppies.presenter
+package com.example.searchfriendsapp.ui.fragment.puppies.adapter
 
 import android.view.LayoutInflater
 import android.view.View
