@@ -10,8 +10,8 @@ import kotlinx.coroutines.launch
 class DogViewModel : ViewModel() {
     private val repository = DogsRepository()
 
-    private val _images = MutableLiveData<List<String>>()
-    val images: LiveData<List<String>> get() = _images
+    private val _images = MutableLiveData<List<String>?>()
+    val images: MutableLiveData<List<String>?> get() = _images
 
     init {
         fetchDogImages()

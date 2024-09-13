@@ -45,7 +45,9 @@ class PuppiesFragment : Fragment() {
         binding.rvPuppies.adapter = adapter
 
         viewModel.images.observe(viewLifecycleOwner) { images ->
-            adapter.updateData(images)
+            if (images != null) {
+                adapter.updateData(images)
+            }
 
         }
     }
