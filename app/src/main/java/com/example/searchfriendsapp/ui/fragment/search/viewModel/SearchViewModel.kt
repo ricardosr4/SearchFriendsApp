@@ -3,12 +3,13 @@ package com.example.searchfriendsapp.ui.fragment.search.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.searchfriendsapp.data.repository.DogsRepository
+import com.example.searchfriendsapp.domain.usecase.DogBreedUseCase
 import com.example.searchfriendsapp.ui.fragment.search.state.SearchState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SearchViewModel(private val repository:DogsRepository = DogsRepository()):ViewModel() {
+class SearchViewModel(private val useCase :DogBreedUseCase = DogBreedUseCase()):ViewModel() {
 
     private val _searchState = MutableLiveData<SearchState>()
     val searchState: MutableLiveData<SearchState> = _searchState
@@ -16,7 +17,7 @@ class SearchViewModel(private val repository:DogsRepository = DogsRepository()):
     fun searchDogByBreed(breed: String) {
         CoroutineScope(Dispatchers.IO).launch {
             _searchState.postValue(SearchState.Loading)
-            val response = repository.getDogsByBreed(breed)
+            val response = useCase.invoke(breed)
             if (response.isSuccessful) {
                 response.body()?.let {
                     _searchState.postValue(SearchState.Success(it))

@@ -43,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun isFormValid(email: String, password: String): Boolean {
         return when {
             email.isBlank() -> {
@@ -63,7 +62,6 @@ class LoginActivity : AppCompatActivity() {
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-
     private fun loginUser(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
