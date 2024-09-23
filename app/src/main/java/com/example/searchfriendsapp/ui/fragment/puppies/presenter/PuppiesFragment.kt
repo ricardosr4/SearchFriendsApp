@@ -7,26 +7,49 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentPuppiesBinding
+import com.example.searchfriendsapp.ui.fragment.puppies.adapter.DogImageAdapter
+import com.example.searchfriendsapp.ui.fragment.puppies.viewModel.DogViewModel
 
 class PuppiesFragment : Fragment() {
-    private lateinit var binding: FragmentPuppiesBinding
+    //private lateinit var binding: FragmentPuppiesBinding
+    private var _binding: FragmentPuppiesBinding? = null
+    private val binding get() = _binding!! //Solo usamos binding cuando no es nulo
+
+    private val viewModel: DogViewModel by activityViewModels()
+    private lateinit var adapter: DogImageAdapter
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPuppiesBinding.inflate(layoutInflater)
+        _binding = FragmentPuppiesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         setupOnClick()
         animateFootprint()
-        super.onViewCreated(view, savedInstanceState)
+
+
+
+        adapter = DogImageAdapter(emptyList())
+        binding.rvPuppies.layoutManager = GridLayoutManager(context, 3)
+        binding.rvPuppies.adapter = adapter
+
+        viewModel.images.observe(viewLifecycleOwner) { images ->
+            if (images != null) {
+                adapter.updateData(images)
+            }
+
+        }
     }
 
     private fun animateFootprint() {
@@ -52,7 +75,7 @@ class PuppiesFragment : Fragment() {
 
 
             binding.btBackBlackTermsAndConditions.animate().apply {
-                translationX(300f)
+                translationX(-300f) //se cambia a negativo para mover a la izquierda
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
 
@@ -63,7 +86,13 @@ class PuppiesFragment : Fragment() {
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
+
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null //Limpiar el binding cuando la vista es destruida.
 
     }
 }
