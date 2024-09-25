@@ -35,7 +35,6 @@ class SearchFragment : Fragment() {
         setupSearchView()
         searchObserver()
         setupOnClick()
-//        navigation()
 
     }
 
@@ -60,16 +59,6 @@ class SearchFragment : Fragment() {
             }
         }
     }
-
-//    private fun navigation() {
-//
-//        binding.ivBack.setOnClickListener {
-//            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
-//        }
-//        binding.tvBack.setOnClickListener {
-//            findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
-//        }
-//    }
 
     private fun putExtra(imageUrl: String) {
         binding.ivSearch.setOnClickListener {
@@ -104,7 +93,6 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
                 return false
             }
         })
@@ -113,24 +101,17 @@ class SearchFragment : Fragment() {
     private fun setupOnClick() {
         binding.btBackWhiteTermsAndConditions.isEnabled = false
         binding.btBackBlackTermsAndConditions.isEnabled = true
-
         binding.btBackBlackTermsAndConditions.setOnClickListener {
             binding.btBackBlackTermsAndConditions.isEnabled = false
-
             binding.btBackBlackTermsAndConditions.animate().apply {
-                translationX(300f)
+                translationX(-300f)
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
-
                 withEndAction {
-
                     findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
-
-
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
         }
     }
-
 }

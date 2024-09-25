@@ -38,12 +38,10 @@ class PuppiesFragment : Fragment() {
         setupOnClick()
         animateFootprint()
 
-
-
         adapter = DogImageAdapter(emptyList())
         binding.rvPuppies.layoutManager = GridLayoutManager(context, 3)
         binding.rvPuppies.adapter = adapter
-
+//todo esta funsion del observe deve quedar afuera como funsion individual y privada
         viewModel.images.observe(viewLifecycleOwner) { images ->
             if (images != null) {
                 adapter.updateData(images)
@@ -65,34 +63,24 @@ class PuppiesFragment : Fragment() {
     }
 
     private fun setupOnClick() {
-
         binding.btBackWhiteTermsAndConditions.isEnabled = false
         binding.btBackBlackTermsAndConditions.isEnabled = true
-
-
         binding.btBackBlackTermsAndConditions.setOnClickListener {
             binding.btBackBlackTermsAndConditions.isEnabled = false
-
-
             binding.btBackBlackTermsAndConditions.animate().apply {
-                translationX(-300f) //se cambia a negativo para mover a la izquierda
+                translationX(-300f)
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
-
-
                 withEndAction {
-
                     findNavController().navigate(R.id.action_puppiesFragment_to_homeFragment)
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
-
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null //Limpiar el binding cuando la vista es destruida.
-
+        _binding = null
     }
 }
