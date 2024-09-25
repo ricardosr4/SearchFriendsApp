@@ -44,6 +44,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_usFragment)
         }
     }
+
     private fun initRecyclerView(list: List<String>) {
         val adapter = AdapterHome(list) { imageUrl ->
             val bundle = Bundle().apply {

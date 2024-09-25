@@ -100,24 +100,16 @@ class RandomFragment : Fragment() {
     }
 
     private fun setupOnClick() {
-
         binding.btBackWhiteTermsAndConditions.isEnabled = false
         binding.btBackBlackTermsAndConditions.isEnabled = true
-
-
         binding.btBackBlackTermsAndConditions.setOnClickListener {
             binding.btBackBlackTermsAndConditions.isEnabled = false
-
-
             binding.btBackBlackTermsAndConditions.animate().apply {
-                translationX(300f)
+                translationX(-300f)
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
-
                 withEndAction {
-
                     findNavController().navigate(R.id.action_randomFragment_to_homeFragment)
-
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }

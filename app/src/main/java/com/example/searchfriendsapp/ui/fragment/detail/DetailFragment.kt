@@ -14,13 +14,11 @@ import com.squareup.picasso.Picasso
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetailBinding.inflate(layoutInflater)
-
         return binding.root
     }
 
@@ -39,30 +37,20 @@ class DetailFragment : Fragment() {
     }
 
     private fun setupOnClick() {
-
         binding.btBackWhiteTermsAndConditions.isEnabled = false
         binding.btBackBlackTermsAndConditions.isEnabled = true
-
-
         binding.btBackBlackTermsAndConditions.setOnClickListener {
             binding.btBackBlackTermsAndConditions.isEnabled = false
-
-
             binding.btBackBlackTermsAndConditions.animate().apply {
-                translationX(300f)
+                translationX(-300f)
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
-
                 withEndAction {
-
                     findNavController().navigate(R.id.action_detailFragment2_to_homeFragment)
-
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
         }
     }
-
-
 }
 

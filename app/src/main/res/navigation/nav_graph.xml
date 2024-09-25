@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/usFragment"
-        android:name="com.example.searchfriendsapp.ui.fragment.us.UsFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.us.presenter.UsFragment"
         android:label="fragment_us"
         tools:layout="@layout/fragment_us" >
         <action
