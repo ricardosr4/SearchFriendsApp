@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa_light"
-        android:text="Integrantes"
+        android:text="@string/integrantes"
         android:textColor="@color/title_search"
         android:textSize="36sp"
         android:layout_marginEnd="20dp"
@@ -121,7 +121,7 @@
         android:drawableStart="@drawable/img_back"
         android:paddingEnd="30dp"
         android:paddingStart="30dp"
-        android:contentDescription="Imagen de un botón de color blanco abajo del boton negro"
+        android:contentDescription="@string/volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,6 +141,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        tools:ignore="RtlSymmetry" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
