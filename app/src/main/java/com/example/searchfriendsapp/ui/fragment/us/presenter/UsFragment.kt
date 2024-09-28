@@ -9,6 +9,8 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.navigation.fragment.findNavController
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentUsBinding
+import com.example.searchfriendsapp.ui.fragment.us.adapter.MembersAdapter
+import com.example.searchfriendsapp.ui.fragment.us.provider.MemberProvider
 
 class UsFragment : Fragment() {
     lateinit var binding: FragmentUsBinding
@@ -30,10 +32,16 @@ class UsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initRecyclerMembers()
         setupOnClick()
         binding.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_usFragment_to_homeFragment)
         }
+    }
+    private fun initRecyclerMembers(){
+        val usAdapter = MembersAdapter(MemberProvider.getMember())
+        binding.rvMembers.adapter = usAdapter
     }
 
     private fun setupOnClick() {
