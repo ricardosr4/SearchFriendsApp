@@ -151,5 +151,27 @@
         app:layout_constraintTop_toBottomOf="@id/tv_adopt_me"
         tools:listitem="@layout/item_rv_home" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_adopt_me"/>
+
+    <ImageView
+        android:id="@+id/iv_rv_error"
+        android:layout_width="300dp"
+        android:contentDescription="@string/imagen"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_adopt_me"
+        android:src="@drawable/img_error_conection"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

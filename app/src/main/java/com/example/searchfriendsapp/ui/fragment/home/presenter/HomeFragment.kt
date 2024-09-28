@@ -30,7 +30,11 @@ class HomeFragment : Fragment() {
 
         call()
         homeObserver()
+        navigationButton()
 
+
+    }
+    private fun navigationButton(){
         binding.tvSearch.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
@@ -63,17 +67,45 @@ class HomeFragment : Fragment() {
         homeViewModel.homeState.observe(viewLifecycleOwner) {
             when (it) {
                 is HomeState.Success -> {
+                    hideLoading()
+                    hideErrorImage()
                     initRecyclerView(it.success.message ?: listOf())
+
                 }
 
                 is HomeState.Loading -> {
+                    showLoading()
+                    hideErrorImage()
 
                 }
 
                 is HomeState.Error -> {
+                    hideLoading()
+                    showErrorImage()
+                    binding.ivRvError.setOnClickListener { retryLoadData() }
 
                 }
             }
         }
+    }
+    private fun showLoading() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.progressBar.visibility = View.GONE
+    }
+
+    private fun showErrorImage() {
+        binding.ivRvError.visibility = View.VISIBLE
+    }
+
+    private fun hideErrorImage() {
+        binding.ivRvError.visibility = View.GONE
+    }
+
+    private fun retryLoadData() {
+        hideErrorImage()
+        call()
     }
 }

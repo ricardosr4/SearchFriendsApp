@@ -44,17 +44,20 @@ class SearchFragment : Fragment() {
                 is SearchState.Success -> {
                     loadImage(data)
                     putExtra(imageUrl = data.data.message ?: "")
+                    updateImageVisibility(isSuccess = true)
 
                 }
 
                 is SearchState.Loading -> {
                     showLoading()
+                    updateImageVisibility(isSuccess = false, isLoading = true)
+
                 }
 
                 is SearchState.Error -> {
                     hideLoading()
+                    updateImageVisibility(isSuccess = false)
                     Toast.makeText(context, "Ups! no hay resultados", Toast.LENGTH_SHORT).show()
-                    binding.ivSearch.setImageResource(R.drawable.img_not_result)
                 }
             }
         }
@@ -112,6 +115,19 @@ class SearchFragment : Fragment() {
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
+        }
+    }
+
+    private fun updateImageVisibility(isSuccess: Boolean, isLoading: Boolean = false) {
+        if (isLoading) {
+            binding.ivSearch.visibility = View.GONE
+            binding.ivSearchError.visibility = View.GONE
+        } else if (isSuccess) {
+            binding.ivSearch.visibility = View.VISIBLE
+            binding.ivSearchError.visibility = View.GONE
+        } else {
+            binding.ivSearchError.visibility = View.VISIBLE
+            binding.ivSearch.visibility = View.GONE
         }
     }
 }

@@ -83,7 +83,16 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/imagen"
             android:scaleType="centerCrop"
-            tools:src="@drawable/img_example" />
+            android:src="@drawable/img_example" />
+
+        <ImageView
+            android:id="@+id/iv_search_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:contentDescription="@string/imagen"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_not_result" />
 
     </androidx.cardview.widget.CardView>
 
