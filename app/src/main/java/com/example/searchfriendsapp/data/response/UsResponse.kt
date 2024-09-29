@@ -1,5 +1,5 @@
 package com.example.searchfriendsapp.data.response
 
-data class MembersResponse(
+data class UsResponse(
     val image: String
 )
