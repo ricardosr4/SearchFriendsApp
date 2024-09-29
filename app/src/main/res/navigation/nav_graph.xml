@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/terminosFragment"
-        android:name="com.example.searchfriendsapp.ui.fragment.TerminosFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.termsFragment.TerminosFragment"
         android:label="fragment_terminos"
         tools:layout="@layout/fragment_terminos" />
     <fragment
