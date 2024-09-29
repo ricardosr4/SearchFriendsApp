@@ -27,6 +27,7 @@ class DetailFragment : Fragment() {
 
         setupView()
         setupOnClick()
+        clipDetail()
 
     }
 
@@ -50,6 +51,24 @@ class DetailFragment : Fragment() {
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
+        }
+    }
+    private fun clipDetail() {
+        // Usar recursos de cadenas para actualizar el texto
+        binding.ivFeeding.setOnClickListener {
+            binding.infoDetail.text = getString(R.string.feeding_description)
+        }
+
+        binding.ivCareful.setOnClickListener {
+            binding.infoDetail.text = getString(R.string.health_description)
+        }
+
+        binding.ivAtmosphere.setOnClickListener {
+            binding.infoDetail.text = getString(R.string.home_environment_description)
+        }
+
+        binding.paw.setOnClickListener {
+            binding.infoDetail.text = getString(R.string.adoption_description)
         }
     }
 }

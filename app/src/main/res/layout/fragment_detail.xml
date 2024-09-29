@@ -49,6 +49,7 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
+                    android:id="@+id/iv_feeding"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
@@ -70,6 +71,7 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
+                    android:id="@+id/iv_careful"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
@@ -91,6 +93,7 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
+                    android:id="@+id/iv_atmosphere"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
@@ -111,6 +114,7 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
+                    android:id="@+id/iv_adopt"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center"
@@ -125,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:text="@string/adoptar"
             android:textColor="@color/black"
             android:fontFamily="@font/comfortaa_regular"
@@ -189,10 +193,11 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/description_detail"
         android:layout_marginBottom="10dp"
-        android:text="Cualquier dieta deve ser apropiada para el perro. Deve haber agua fresca y limpia en todo momento."
-        android:textColor="#AAA2A2"
+        android:textColor="@color/black"
+        android:gravity="top|center_horizontal"
         android:textSize="20sp"
         android:elevation="@dimen/cardview_default_elevation"
         app:layout_constraintTop_toTopOf="@id/cv_details"
