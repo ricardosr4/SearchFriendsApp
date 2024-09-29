@@ -9,6 +9,10 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.navigation.fragment.findNavController
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentUsBinding
+import com.example.searchfriendsapp.ui.fragment.us.adapter.AboutUsAdapter
+import com.example.searchfriendsapp.ui.fragment.us.adapter.MembersAdapter
+import com.example.searchfriendsapp.ui.fragment.us.provider.AboutUsProvider
+import com.example.searchfriendsapp.ui.fragment.us.provider.MemberProvider
 
 class UsFragment : Fragment() {
     lateinit var binding: FragmentUsBinding
@@ -30,10 +34,23 @@ class UsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initRecyclerUs()
         setupOnClick()
-        binding.backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_usFragment_to_homeFragment)
+        navigation()
+
         }
+        private fun navigation(){
+            binding.backButton.setOnClickListener {
+                findNavController().navigate(R.id.action_usFragment_to_homeFragment)
+        }
+    }
+
+    private fun initRecyclerUs() {
+        val membersAdapter = MembersAdapter(MemberProvider.getMember())
+        val aboutUsAdapter = AboutUsAdapter(AboutUsProvider.getImageUs())
+        binding.rvMembers.adapter = membersAdapter
+        binding.rvAboutUs.adapter = aboutUsAdapter
     }
 
     private fun setupOnClick() {
@@ -42,7 +59,7 @@ class UsFragment : Fragment() {
         binding.btBackBlackTermsAndConditions.setOnClickListener {
             binding.btBackBlackTermsAndConditions.isEnabled = false
             binding.btBackBlackTermsAndConditions.animate().apply {
-                translationX(-300f) //se cambia a negativo para mover a la izquierda
+                translationX(-300f)
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
                 withEndAction {
