@@ -39,4 +39,12 @@
     <string name="image_about_the_members">Imagen acerca de los integrantes</string>
     <string name="adoptar">Adoptar</string>
     <string name="integrantes">Integrantes</string>
+
+    <!-- TODO: Aqui manejamos los textos de los botones de detail -->
+    <string name="feeding_description">Proporciona a tu mascota una dieta equilibrada para asegurar su bienestar y salud a largo plazo.</string>
+    <string name="health_description">Mantén al día las revisiones veterinarias y el esquema de vacunación para una vida sana y feliz.</string>
+    <string name="home_environment_description">Crea un ambiente cómodo y seguro para que tu mascota se sienta siempre en casa.</string>
+    <string name="adoption_description">Adoptar una mascota es un acto de amor. Dale una segunda oportunidad a un ser que lo necesita.</string>
+    <string name="description_detail">¡Ya casi estás! Solo falta un paso más para reunirte con tu amigo. Presiona el ícono para ver una breve descripción y luego Adoptar.</string>
+
 </resources>
