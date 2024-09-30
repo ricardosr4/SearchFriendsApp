@@ -126,6 +126,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_adopt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -163,7 +164,7 @@
             android:drawableStart="@drawable/img_back"
             android:paddingEnd="30dp"
             android:paddingStart="30dp"
-            android:contentDescription="Imagen de un botón de color blanco abajo del boton negro"
+            android:contentDescription="@string/imagen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -183,7 +184,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            tools:ignore="RtlSymmetry" />
 
     </FrameLayout>
 
