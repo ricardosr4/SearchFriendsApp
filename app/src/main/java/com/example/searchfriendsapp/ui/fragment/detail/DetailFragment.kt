@@ -28,7 +28,13 @@ class DetailFragment : Fragment() {
         setupView()
         setupOnClick()
         clipDetail()
+        navigation()
 
+    }
+    private fun navigation(){
+        binding.tvAdopt.setOnClickListener {
+            findNavController().navigate(R.id.action_detailFragment2_to_adoptFragment)
+        }
     }
 
     private fun setupView() {
