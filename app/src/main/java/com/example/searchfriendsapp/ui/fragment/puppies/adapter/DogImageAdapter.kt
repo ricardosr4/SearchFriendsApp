@@ -11,8 +11,10 @@ import com.squareup.picasso.Picasso
 class DogImageAdapter(private var images: List<String>) :
     RecyclerView.Adapter<DogImageAdapter.ViewHolder>() {
 
-        fun updateData(newImages:List<String>){
-            images = newImages
+        fun updateData(newImages: List<String>?){
+            if (newImages != null) {
+                images = newImages
+            }
             notifyDataSetChanged()
         }
 
