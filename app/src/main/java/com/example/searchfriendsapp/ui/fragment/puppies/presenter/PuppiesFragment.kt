@@ -40,6 +40,7 @@ class PuppiesFragment : Fragment() {
         binding.rvPuppies.layoutManager = GridLayoutManager(context, 3)
         binding.rvPuppies.adapter = adapter
 
+        call()
         setupOnClick()
         animateFootprint()
 
@@ -124,9 +125,15 @@ class PuppiesFragment : Fragment() {
             }
         }
     }
+    private fun call(){
+        viewModel.fetchDogImages()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
 }
