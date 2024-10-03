@@ -16,6 +16,7 @@ import com.example.searchfriendsapp.databinding.FragmentPuppiesBinding
 import com.example.searchfriendsapp.ui.fragment.puppies.adapter.DogImageAdapter
 import com.example.searchfriendsapp.ui.fragment.puppies.state.PuppiesState
 import com.example.searchfriendsapp.ui.fragment.puppies.viewModel.DogViewModel
+import com.squareup.picasso.Picasso
 
 class PuppiesFragment : Fragment() {
 
@@ -36,7 +37,12 @@ class PuppiesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = DogImageAdapter(emptyList())
+        adapter = DogImageAdapter(emptyList()){imageUrl ->
+            val bundle = Bundle().apply {
+                putString("imageUrl",imageUrl)
+            }
+            findNavController().navigate(R.id.action_puppiesFragment_to_detailFragment2, bundle)
+        }
         binding.rvPuppies.layoutManager = GridLayoutManager(context, 3)
         binding.rvPuppies.adapter = adapter
 
@@ -61,22 +67,6 @@ class PuppiesFragment : Fragment() {
 
     }
 
-
-    private fun animateFootprint() {
-        binding.imagePaw.setOnClickListener {
-            val animator = ValueAnimator.ofFloat(0f, 360f)
-            animator.addUpdateListener { valueAnimator ->
-                val animatedValue = valueAnimator.animatedValue as Float
-                binding.imagePaw.rotationY = animatedValue
-            }
-            animator.duration = 1000
-            animator.start()
-
-            //Aquí se llama a la función del ViewModel para refrescar las imágenes
-            viewModel.fetchDogImages() //Llama al ViewModel para recargar imágenes
-        }
-    }
-
     private fun observeViewModelState(){
         viewModel.images.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -90,6 +80,7 @@ class PuppiesFragment : Fragment() {
                     binding.progressBar.visibility = View.GONE
                     binding.rvPuppies.visibility = View.VISIBLE
                     adapter.updateData((state.success.message))
+
                 }
                 is PuppiesState.Error -> {
                     //Ocultar ProgressBar y Mostrar un mensaje de error
@@ -108,6 +99,21 @@ class PuppiesFragment : Fragment() {
     }
 
 
+
+    private fun animateFootprint() {
+        binding.imagePaw.setOnClickListener {
+            val animator = ValueAnimator.ofFloat(0f, 360f)
+            animator.addUpdateListener { valueAnimator ->
+                val animatedValue = valueAnimator.animatedValue as Float
+                binding.imagePaw.rotationY = animatedValue
+            }
+            animator.duration = 1000
+            animator.start()
+
+            //Aquí se llama a la función del ViewModel para refrescar las imágenes
+            viewModel.fetchDogImages() //Llama al ViewModel para recargar imágenes
+        }
+    }
 
     private fun setupOnClick() {
         binding.btBackWhiteTermsAndConditions.isEnabled = false

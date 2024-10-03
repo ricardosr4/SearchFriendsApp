@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.searchfriendsapp.R
 import com.squareup.picasso.Picasso
 
-class DogImageAdapter(private var images: List<String>) :
+class DogImageAdapter(private var images: List<String>,
+//Nuevo recibe una funcion para manejar el clic
+private val onItemClick: (String) -> Unit) :
     RecyclerView.Adapter<DogImageAdapter.ViewHolder>() {
 
         fun updateData(newImages: List<String>?){
@@ -27,7 +29,15 @@ class DogImageAdapter(private var images: List<String>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(images[position])
+        //nuevo
+        val imageUrl = images[position]
+        holder.bind(imageUrl)
+
+        //Se agrega el listener para dar clic en la imagen
+        holder.itemView.setOnClickListener {
+            onItemClick(imageUrl) //Llamar a la funcion de clic con la URL de la Imagen
+        }
+
     }
 
     override fun getItemCount(): Int = images.size
