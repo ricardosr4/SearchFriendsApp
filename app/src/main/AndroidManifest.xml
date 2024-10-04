@@ -22,14 +22,14 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.preLogin.presenter.PreLoginActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.login.presenter.LoginActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.preLogin.presenter.PreLoginActivity"
+            android:name=".ui.activity.splashScreen.SplashActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
