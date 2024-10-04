@@ -7,39 +7,41 @@
     android:background="@color/white"
     tools:context=".ui.activity.splashScreen.SplashActivity">
 
-
     <TextView
         android:id="@+id/tv_title_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="75dp"
         android:layout_marginTop="190dp"
         android:text="@string/search"
         android:textColor="@color/title_search"
-        android:textSize="36sp"
+        android:textSize="42sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_friend"
+        app:layout_constraintBottom_toTopOf="@+id/search_friend_logo"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_friend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="190dp"
+        android:layout_marginStart="5dp"
+
         android:text="@string/friend"
         android:textColor="@color/black"
-        android:textSize="36sp"
+        android:textSize="42sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/tv_title_search"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/search_friend_logo"
+        app:layout_constraintStart_toEndOf="@id/tv_title_search"
+        />
 
     <ImageView
         android:id="@+id/search_friend_logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerInParent="true"
         android:src="@drawable/search_friend_logo"
         app:layout_constraintBottom_toBottomOf="parent"
