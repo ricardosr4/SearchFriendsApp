@@ -63,7 +63,7 @@ class UsFragment : Fragment() {
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
                 withEndAction {
-                    findNavController().navigate(R.id.action_usFragment_to_homeFragment)
+                    findNavController().navigateUp()
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }

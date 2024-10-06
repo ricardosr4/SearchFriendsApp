@@ -53,7 +53,7 @@ class DetailFragment : Fragment() {
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = 500
                 withEndAction {
-                    findNavController().navigate(R.id.action_detailFragment2_to_homeFragment)
+                    findNavController().navigateUp()
                     binding.btBackBlackTermsAndConditions.isEnabled = true
                 }
             }
