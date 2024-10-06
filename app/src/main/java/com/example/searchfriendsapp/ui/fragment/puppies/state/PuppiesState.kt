@@ -1,5 +1,4 @@
 package com.example.searchfriendsapp.ui.fragment.puppies.state
-
 import com.example.searchfriendsapp.data.response.DogImageResponse
 
 sealed class PuppiesState {
