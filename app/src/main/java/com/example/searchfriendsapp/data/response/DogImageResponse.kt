@@ -1,12 +1,12 @@
 package com.example.searchfriendsapp.data.response
 
-import android.hardware.biometrics.BiometricManager.Strings
 import com.google.gson.annotations.SerializedName
+import com.google.rpc.Status
 
-class DogImageResponse(
+data class DogImageResponse(
     @SerializedName("message")
     val message: List<String>?,
 
     @SerializedName("status")
-    val status: String?
+    val status: String
 )
