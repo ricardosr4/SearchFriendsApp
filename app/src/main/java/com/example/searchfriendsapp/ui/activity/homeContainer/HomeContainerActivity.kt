@@ -10,12 +10,16 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.ActivityHomeContainerBinding
+import com.example.searchfriendsapp.databinding.NavHeaderMainBinding
 import com.example.searchfriendsapp.ui.activity.preLogin.logout
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeContainerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityHomeContainerBinding
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var headerBinding: NavHeaderMainBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,17 +40,34 @@ class HomeContainerActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
-
         binding.navView.setNavigationItemSelectedListener(this)
+        auth = FirebaseAuth.getInstance()
+
+        val headerView = binding.navView.getHeaderView(0)
+        headerBinding = NavHeaderMainBinding.bind(headerView)
+
+        // Obtén el usuario autenticado desde Firebase
+        val currentUser = auth.currentUser
+
+        if (currentUser != null) {
+            val userEmail = currentUser.email ?: "Correo no disponible"
+            headerBinding.tvNavHeader.text = userEmail
+        } else {
+            headerBinding.tvNavHeader.text = getString(R.string.invitado)
+
+        }
     }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> {
                 findNavController(R.id.nav_host_fragment_container).navigate(R.id.homeFragment)
             }
+
             R.id.nav_Terminos -> {
                 findNavController(R.id.nav_host_fragment_container).navigate(R.id.terminosFragment)
             }
+
             R.id.logout -> {
                 logout()
             }

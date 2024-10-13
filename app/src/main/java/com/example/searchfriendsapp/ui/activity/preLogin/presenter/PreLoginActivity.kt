@@ -67,20 +67,20 @@ class PreLoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun firebaseAuthWithGoogle(idToken:String){
+    private fun firebaseAuthWithGoogle(idToken: String) {
         val credentials = GoogleAuthProvider.getCredential(idToken, null)
         myAuth.signInWithCredential(credentials)
-            .addOnCompleteListener(this){task->
-                if (task.isSuccessful){
-                    Log.d("Tag", "signInWithCredential:success")
-                    val user = myAuth.currentUser?.email.toString()
-                    loginToGoogle(user)
-                }else{
-                    Log.w("Tag", "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "no se pudo loguear", Toast.LENGTH_SHORT).show()
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = myAuth.currentUser
+                    val userEmail = user?.email.toString()
+                    loginToGoogle(userEmail)
+                } else {
+                    Toast.makeText(this, "No se pudo loguear", Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
 
 
 
