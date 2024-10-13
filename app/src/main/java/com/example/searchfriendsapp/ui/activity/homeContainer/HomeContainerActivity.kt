@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.ActivityHomeContainerBinding
+import com.example.searchfriendsapp.ui.activity.preLogin.logout
 import com.google.android.material.navigation.NavigationView
 
 class HomeContainerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +46,9 @@ class HomeContainerActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             }
             R.id.nav_Terminos -> {
                 findNavController(R.id.nav_host_fragment_container).navigate(R.id.terminosFragment)
+            }
+            R.id.logout -> {
+                logout()
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
