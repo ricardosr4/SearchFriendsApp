@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.fragment.adoptFragment.AdoptFragment">
 
 
@@ -13,32 +13,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:textColor="@color/black"
         android:fontFamily="@font/comfortaa_bold"
+        android:gravity="center"
         android:text="@string/message_adopt"
+        android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/iv_adopt" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/iv_adopt"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_puppieAdopt"
+        android:contentDescription="Puppy adopted"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
+        android:layout_height="550dp"
         android:layout_marginHorizontal="20dp"
-        android:contentDescription="@string/imagen"
-        android:src="@drawable/img_adopt"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_lucky"
-        android:layout_marginBottom="80dp" />
+        app:layout_constraintBottom_toTopOf="@+id/cv_btn_back">
+
+        <ImageView
+            android:id="@+id/iv_adopt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/imagen"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_adopt" />
+
+    </androidx.cardview.widget.CardView>
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_btn_back"
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
@@ -47,7 +57,6 @@
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_adopt"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
