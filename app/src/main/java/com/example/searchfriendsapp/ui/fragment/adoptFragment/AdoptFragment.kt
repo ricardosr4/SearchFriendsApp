@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentAdoptBinding
+import com.squareup.picasso.Picasso
 
 class AdoptFragment : Fragment() {
     private lateinit var binding: FragmentAdoptBinding
@@ -29,6 +30,14 @@ class AdoptFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Recibe la URL de la imagen desde el Bundle
+        val imageUrl = arguments?.getString("imageUrl")
+
+        //Cargar la imagen en iv_adopt usando Piccasso
+        imageUrl?.let {
+            Picasso.get().load(it).into(binding.ivAdopt)
+        }
 
         navigation()
     }
