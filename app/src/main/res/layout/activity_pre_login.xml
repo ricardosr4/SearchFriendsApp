@@ -48,6 +48,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_google"
         android:layout_width="350dp"
+        android:backgroundTint="@color/white"
         android:layout_height="55dp"
         android:layout_marginBottom="300dp"
         app:cardCornerRadius="10dp"
@@ -59,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/black"
             android:text="@string/ingresar_con_google"
             android:textSize="16sp"
             android:textStyle="bold" />
