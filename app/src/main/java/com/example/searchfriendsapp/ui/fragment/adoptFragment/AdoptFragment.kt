@@ -31,6 +31,12 @@ class AdoptFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navigation()
+        putExtra()
+    }
+
+    private fun putExtra(){
+
         //Recibe la URL de la imagen desde el Bundle
         val imageUrl = arguments?.getString("imageUrl")
 
@@ -39,7 +45,6 @@ class AdoptFragment : Fragment() {
             Picasso.get().load(it).into(binding.ivAdopt)
         }
 
-        navigation()
     }
     private fun navigation(){
         binding.btnBackToHome.setOnClickListener {
