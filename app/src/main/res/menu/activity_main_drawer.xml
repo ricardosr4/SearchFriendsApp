@@ -9,6 +9,10 @@
             android:id="@+id/nav_Terminos"
             android:icon="@drawable/icon_terminos"
             android:title="@string/terminos_y_condiciones" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_logout_24"
+            android:title="Cerrar Sesion" />
 
     </group>
 </menu>

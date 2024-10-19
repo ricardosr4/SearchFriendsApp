@@ -3,11 +3,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.termsFragment.TerminosFragment">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/imagen"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_logo"/>
+
     <TextView
+        android:id="@+id/tv_title_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/search"
+        android:textColor="@color/title_search"
+        android:textSize="36sp"
+        android:textStyle="bold"
+         />
+
+    <TextView
+        android:id="@+id/tv_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/friend"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tv_title_search"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="120dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Términos y Condiciones de Uso
+
+Bienvenido a 'Search Friends', una plataforma dedicada a la adopción responsable de mascotas. Al utilizar nuestra aplicación, aceptas cumplir con los siguientes términos y condiciones de uso:
+
+1. Uso de la Aplicación:
+\n- 'Search Friends' es una plataforma destinada a facilitar la adopción de perros. No se permite el uso de la aplicación para otros fines distintos al mencionado.
+
+\n2. Responsabilidad del Usuario:
+\n- Al publicar información en la aplicación, garantizas que la misma es veraz y actualizada. Eres responsable de mantener la confidencialidad de tu cuenta y contraseña.
+
+\n3. Adopciones Responsables:
+\n- Nos comprometemos a fomentar adopciones responsables. Los usuarios deben estar conscientes del compromiso y responsabilidad que implica adoptar una mascota.
+
+\n4. Propiedad Intelectual:
+\n- Todos los derechos de propiedad intelectual relacionados con 'Search Friends' y su contenido pertenecen a nosotros. No se permite la reproducción o distribución no autorizada del contenido de la aplicación.
+
+\n5. Privacidad:
+\n- Respetamos tu privacidad. Consulta nuestra Política de Privacidad para obtener información detallada sobre cómo gestionamos tus datos personales.
+
+\n6. Modificaciones:
+\n- Nos reservamos el derecho de modificar o actualizar estos términos y condiciones en cualquier momento. Se te notificará sobre los cambios mediante la aplicación o nuestros canales de comunicación.
+
+\n7. Contacto:
+\n- Para cualquier consulta sobre estos términos y condiciones, por favor contáctanos a través de [tu correo electrónico de contacto].
+
+\nAl utilizar 'Search Friends', aceptas estos términos y condiciones. Si no estás de acuerdo con alguno de ellos, por favor, no utilices nuestra aplicación."
+            android:textSize="16sp"
+            android:padding="20dp"
+            android:layout_margin="10dp"
+            android:scrollbars="vertical"/>
+    </ScrollView>
 
 </FrameLayout>
