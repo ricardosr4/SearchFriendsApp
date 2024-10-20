@@ -30,25 +30,28 @@ class RegisterActivity : AppCompatActivity() {
                 is AuthState.Loading -> {
                     // falta ajustar pantalla de loading
                 }
+
                 is AuthState.Success -> {
                     showToast(state.message)
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
+
                 is AuthState.Error -> {
                     showToast(state.error)
                 }
-                else -> { /* Estado Idle, sin acción */ }
+
+                else -> { /* Estado Idle, sin acción */
+                }
             }
         }
     }
 
     private fun setupRegisterButton() {
         binding.cvRegister.setOnClickListener {
-            val fullName = binding.etFullName.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
-            val user = UserData(email, password, fullName)
+            val user = UserData(email, password)
 
             registerViewModel.register(user)
         }
