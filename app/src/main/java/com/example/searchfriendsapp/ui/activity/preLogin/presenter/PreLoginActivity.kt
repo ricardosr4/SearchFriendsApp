@@ -79,7 +79,8 @@ class PreLoginActivity : AppCompatActivity() {
             try {
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d("Tag", "Firebasegoogleid ${account.id}")
-                googleAuthViewModel.firebaseAuthWithGoogle(account.idToken!!)
+                //googleAuthViewModel.firebaseAuthWithGoogle(account.idToken!!)
+                googleAuthViewModel.firebaseAuthWithGoogle(account.idToken ?: "")
             } catch (e: ApiException) {
                 Log.w("Tag", "Google sign in failed", e)
             }
@@ -106,5 +107,4 @@ class PreLoginActivity : AppCompatActivity() {
             startActivity(Intent.createChooser(emailIntent, "Enviar email..."))
         }
     }
-
 }

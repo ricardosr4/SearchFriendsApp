@@ -52,7 +52,8 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     //login for google
-    implementation ("com.google.android.gms:play-services-auth:20.4.0")
+    //implementation ("com.google.android.gms:play-services-auth:20.4.0")
+    implementation ("com.google.android.gms:play-services-auth:20.5.0")
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
