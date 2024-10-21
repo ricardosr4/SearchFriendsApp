@@ -49,4 +49,6 @@
     <string name="message_adopt">Gracias a ti, \nLucky tiene\nHogar!!</string>
     <string name="volver_al_inicio">Volver al inicio</string>
 
+    <string name="default_web_client_id">AIzaSyDN_LCN0vyfvZ0hfFM1ac2pNSiz7Rxdh1I</string>
+
 </resources>

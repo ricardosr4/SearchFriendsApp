@@ -12,7 +12,20 @@
           "package_name": "com.example.searchfriendsapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "418547007530-bo4ds6mo3m55fjhpg3v34s2lau5hk90b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.searchfriendsapp",
+            "certificate_hash": "cbeee6463cd5e9a7e7128c8c5fe474e0593efe0a"
+          }
+        },
+        {
+          "client_id": "418547007530-46inqtv3q027gk3al6a9emag7sg6q89i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDN_LCN0vyfvZ0hfFM1ac2pNSiz7Rxdh1I"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418547007530-46inqtv3q027gk3al6a9emag7sg6q89i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
