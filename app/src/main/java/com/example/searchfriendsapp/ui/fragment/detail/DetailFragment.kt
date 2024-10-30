@@ -31,9 +31,18 @@ class DetailFragment : Fragment() {
         navigation()
 
     }
-    private fun navigation(){
+
+    private fun navigateToAdoptFragment() {
+        val imageUrl = arguments?.getString("imageUrl")
+        val bundle = Bundle().apply {
+            putString("imageUrl", imageUrl)
+        }
+        findNavController().navigate(R.id.action_detailFragment2_to_adoptFragment, bundle)
+    }
+
+    private fun navigation() {
         binding.tvAdopt.setOnClickListener {
-            findNavController().navigate(R.id.action_detailFragment2_to_adoptFragment)
+            navigateToAdoptFragment()
         }
     }
 
@@ -59,8 +68,8 @@ class DetailFragment : Fragment() {
             }
         }
     }
+
     private fun clipDetail() {
-        // Usar recursos de cadenas para actualizar el texto
         binding.ivFeeding.setOnClickListener {
             binding.infoDetail.text = getString(R.string.feeding_description)
         }
