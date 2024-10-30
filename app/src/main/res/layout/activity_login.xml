@@ -22,6 +22,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/imagen"
             android:src="@drawable/img_back"
+            android:backgroundTint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:textColor="@color/black"
             android:fontFamily="@font/comfortaa_bold"
             android:text="@string/ingresar"
             android:textSize="36sp"
