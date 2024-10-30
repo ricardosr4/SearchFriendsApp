@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.search.presenter.SearchFragment">
 
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="30dp"
+        android:queryHint="@string/search"
         android:text="@string/search"
         android:textColor="#FF9800"
         android:textSize="40sp"
@@ -38,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="30dp"
-        app:cardBackgroundColor="#EDE8E8"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search">
@@ -49,6 +51,7 @@
             android:layout_height="wrap_content"
             android:queryHint="@string/search"
             app:iconifiedByDefault="false"
+            android:theme="@style/SearchViewTextColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search" />
 

@@ -2,6 +2,7 @@ package com.example.searchfriendsapp.ui.activity.register.presenter
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,20 +29,23 @@ class RegisterActivity : AppCompatActivity() {
         registerViewModel.registerState.observe(this) { state ->
             when (state) {
                 is AuthState.Loading -> {
-                    // falta ajustar pantalla de loading
+                    showLoading()
                 }
 
                 is AuthState.Success -> {
-                    showToast(state.message)
+                    showToast(state.email)
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }
 
                 is AuthState.Error -> {
+                    hideLoading()
                     showToast(state.error)
                 }
 
-                else -> { /* Estado Idle, sin acción */
+                else -> {
+                    hideLoading()
+                    showToast("Error")
                 }
             }
         }
@@ -60,4 +64,12 @@ class RegisterActivity : AppCompatActivity() {
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+    private fun showLoading() {
+        binding.progressCircular.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.progressCircular.visibility = View.GONE
+    }
+
 }

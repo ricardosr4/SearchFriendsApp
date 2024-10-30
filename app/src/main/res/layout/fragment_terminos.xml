@@ -7,12 +7,12 @@
     tools:context=".ui.fragment.termsFragment.TerminosFragment">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:contentDescription="@string/imagen"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
-        android:src="@mipmap/ic_logo"/>
+        android:src="@drawable/img_paw"/>
 
     <TextView
         android:id="@+id/tv_title_search"

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.databinding.FragmentAdoptBinding
+import com.squareup.picasso.Picasso
 
 class AdoptFragment : Fragment() {
     private lateinit var binding: FragmentAdoptBinding
@@ -31,6 +32,13 @@ class AdoptFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         navigation()
+        loadImageDetail()
+
+    }
+    private fun loadImageDetail() {
+        arguments?.getString("imageUrl")?.let { imageUrl ->
+            Picasso.get().load(imageUrl).into(binding.ivAdopt)
+        }
     }
     private fun navigation(){
         binding.btnBackToHome.setOnClickListener {
