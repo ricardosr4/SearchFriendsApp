@@ -2,9 +2,11 @@ package com.example.searchfriendsapp.ui.activity.login.presenter
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.searchfriendsapp.R
 import com.example.searchfriendsapp.data.response.UserData
 import com.example.searchfriendsapp.databinding.ActivityLoginBinding
 import com.example.searchfriendsapp.ui.activity.homeContainer.HomeContainerActivity
@@ -30,20 +32,22 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginState.observe(this) { state ->
             when (state) {
                 is AuthState.Loading -> {
-                    // falta ajustar una pantalla de carga
+                    showLoading()
                 }
 
                 is AuthState.Success -> {
-                    showToast(state.message)
+                    showToast(getString(R.string.bienvenid, state.email))
                     startActivity(Intent(this, HomeContainerActivity::class.java))
                     finish()
                 }
 
                 is AuthState.Error -> {
+                    hideLoading()
                     showToast(state.error)
                 }
 
-                else -> { /* Estado Idle, sin acción */
+                else -> {
+                    showToast("Error")
                 }
             }
         }
@@ -67,5 +71,13 @@ class LoginActivity : AppCompatActivity() {
 
             loginViewModel.login(user)
         }
+    }
+
+    private fun showLoading() {
+        binding.progressCircular.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.progressCircular.visibility = View.GONE
     }
 }

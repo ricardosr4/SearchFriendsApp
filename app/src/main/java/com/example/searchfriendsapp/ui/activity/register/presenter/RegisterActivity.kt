@@ -32,7 +32,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 is AuthState.Success -> {
-                    showToast(state.message)
+                    showToast(state.email)
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 }

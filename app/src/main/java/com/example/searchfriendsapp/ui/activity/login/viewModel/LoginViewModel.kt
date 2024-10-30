@@ -7,7 +7,7 @@ import com.example.searchfriendsapp.data.response.UserData
 import com.example.searchfriendsapp.util.AuthState
 import com.google.firebase.auth.FirebaseAuth
 
-class LoginViewModel():ViewModel() {
+class LoginViewModel:ViewModel() {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     private val _loginState = MutableLiveData<AuthState>()
@@ -24,9 +24,11 @@ class LoginViewModel():ViewModel() {
         auth.signInWithEmailAndPassword(user.email, user.password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    _loginState.value = AuthState.Success("Inicio de sesión exitoso")
+                    val firebaseUser = auth.currentUser
+                    val email = firebaseUser?.email ?: ""
+                    _loginState.value = AuthState.Success(email)
                 } else {
-                    _loginState.value = AuthState.Error(task.exception?.message ?: "Error desconocido")
+                    _loginState.value = AuthState.Error(task.exception?.message ?: "Error")
                 }
             }
     }
