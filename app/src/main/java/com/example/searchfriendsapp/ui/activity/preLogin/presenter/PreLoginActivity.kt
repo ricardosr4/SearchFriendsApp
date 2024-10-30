@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +23,7 @@ class PreLoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPreLoginBinding
     private val googleAuthViewModel by viewModels<PreLoginViewModel>()
 
-  private val Google_SIGN_IN = 100
+    private val Google_SIGN_IN = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,13 +39,13 @@ class PreLoginActivity : AppCompatActivity() {
         googleAuthViewModel.googleAuthState.observe(this) { state ->
             when (state) {
                 is GoogleAuthState.Loading -> {
-                    Toast.makeText(this, "Cargando...", Toast.LENGTH_SHORT).show()
+                    showLoading()
                 }
 
                 is GoogleAuthState.Success -> {
                     Toast.makeText(
                         this,
-                        "Inicio de sesión exitoso: ${state.email}",
+                        getString(R.string.bienvenid, state.email),
                         Toast.LENGTH_SHORT
                     ).show()
                     startActivity(Intent(this, HomeContainerActivity::class.java))
@@ -52,7 +53,12 @@ class PreLoginActivity : AppCompatActivity() {
                 }
 
                 is GoogleAuthState.Error -> {
+                    hideLoading()
                     Toast.makeText(this, "Error: ${state.message}", Toast.LENGTH_SHORT).show()
+                }
+
+                else -> {
+                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -105,6 +111,14 @@ class PreLoginActivity : AppCompatActivity() {
                 )
             startActivity(Intent.createChooser(emailIntent, "Enviar email..."))
         }
+    }
+
+    private fun showLoading() {
+        binding.progressCircular.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.progressCircular.visibility = View.GONE
     }
 
 }
