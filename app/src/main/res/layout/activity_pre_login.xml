@@ -146,7 +146,7 @@
             android:id="@+id/tv_title_support"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="120dp"
+            android:layout_marginEnd="100dp"
             android:textColor="@color/black"
             android:layout_marginBottom="20dp"
             android:text="@string/en_caso_de_tener_problemas_comunicarse_con"

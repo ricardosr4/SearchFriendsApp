@@ -22,6 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupObservers()
+        setupNavigation()
         setupRegisterButton()
     }
 
@@ -48,6 +49,12 @@ class RegisterActivity : AppCompatActivity() {
                     showToast("Error")
                 }
             }
+        }
+    }
+    private fun setupNavigation() {
+        binding.backButton.setOnClickListener {
+            finish()
+//            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
