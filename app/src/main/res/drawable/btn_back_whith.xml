@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle">
+
+        <!-- Color de fondo -->
+        <solid android:color="@color/white" />
+
+        <!-- Esquinas redondeadas -->
+        <corners android:radius="40dp" />
+
+        <stroke
+            android:width="2dp"
+            android:color="@color/btn_detail" /> <!-- Cambia el color según tus necesidades -->
+
+        <!-- Sombra (leve elevación) -->
+        <elevation android:shadowColor="#80000000" android:height="4dp" />
+
+    </shape>
+</item>
+</selector>

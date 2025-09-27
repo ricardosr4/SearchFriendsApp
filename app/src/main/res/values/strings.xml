@@ -1,5 +1,55 @@
 <resources>
-    <string name="app_name">SearchFriendsApp</string>
+    <string name="app_name">ProjectDogsApp</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="soporte">soporte</string>
+    <string name="en_caso_de_tener_problemas_comunicarse_con">En caso de tener problemas comunicarse con</string>
+    <string name="imagen">imagen</string>
+    <string name="search">Search</string>
+    <string name="friend">Friend</string>
+    <string name="ingresar_con_google">Ingresar con Google</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="invitado">Invitado</string>
+    <string name="register">Registrarse</string>
+    <string name="register_title">Registrarse</string>
+    <string name="name">Nombre</string>
+    <string name="email">Correo electronico</string>
+    <string name="crear_contrase_a">Crear contraseña</string>
+    <string name="btn_registrarse">Registrarse</string>
+    <string name="imageview_back_to_home">Imagen para regresar a home</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="entrar">Entrar</string>
+    <string name="aleatorio">Aleatorio</string>
+    <string name="perritos">Perritos</string>
+    <string name="nosotros">Nosotros</string>
+    <string name="buscar">Buscar</string>
+    <string name="adoptame">Adoptame</string>
+    <string name="home">Home</string>
+    <string name="terminos_y_condiciones">Terminos y Condiciones</string>
+    <string name="volver">Volver</string>
+    <string name="ricardo_andres_soto_ramirez">Ricardo Andres Soto Ramirez</string>
+    <string name="imagen_perrito">imagen_perrito</string>
+    <string name="contiene_3_imagenes_horizontales_de_perritos_que_se_repiten_de_forma_vertical">contiene 3 imagenes horizontales de perritos que se repiten de forma vertical</string>
+    <string name="about_us">Sobre Nosotros</string>
+    <string name="contains_1_image_of_a_member">contiene 1 imagen de un integrante</string>
+    <string name="contains_photos_about_us">Contiene fotos sobre nosotros</string>
+    <string name="image_about_the_members">Imagen acerca de los integrantes</string>
+    <string name="adoptar">Adoptar</string>
+    <string name="integrantes">Integrantes</string>
+
+    <!-- TODO: Aqui manejamos los textos de los botones de detail -->
+    <string name="feeding_description">Proporciona a tu mascota una dieta equilibrada con mucha agua para asegurar su bienestar y salud a largo plazo.</string>
+    <string name="health_description">Mantén al día las revisiones veterinarias y el esquema de vacunación para una vida sana y feliz.</string>
+    <string name="home_environment_description">Crea un ambiente cómodo y seguro para que tu mascota se sienta siempre en casa.</string>
+    <string name="adoption_description">Adoptar una mascota es un acto de amor. Dale una segunda oportunidad a un ser que lo necesita.</string>
+    <string name="description_detail">¡Ya casi estás! Solo falta un paso más para reunirte con tu amigo. Presiona el ícono para ver una breve descripción y luego Adoptar.</string>
+    <string name="message_adopt">Gracias a ti, \nLucky tiene\nHogar!!</string>
+    <string name="volver_al_inicio">Volver al inicio</string>
+
+    <string name="default_web_client_id">AIzaSyDN_LCN0vyfvZ0hfFM1ac2pNSiz7Rxdh1I</string>
+    <string name="bienvenid">Bienvenid@: %1$s</string>
+
 </resources>

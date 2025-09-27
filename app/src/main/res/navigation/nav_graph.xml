@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.home.presenter.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_puppiesFragment"
+            app:destination="@id/puppiesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_randomFragment"
+            app:destination="@id/randomFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_usFragment"
+            app:destination="@id/usFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_terminosFragment"
+            app:destination="@id/terminosFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/puppiesFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.puppies.presenter.PuppiesFragment"
+        android:label="fragment_puppies"
+        tools:layout="@layout/fragment_puppies" >
+        <action
+            android:id="@+id/action_puppiesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_puppiesFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.random.presenter.RandomFragment"
+        android:label="fragment_random"
+        tools:layout="@layout/fragment_random" >
+        <action
+            android:id="@+id/action_randomFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_randomFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+        <action
+            android:id="@+id/action_randomFragment_to_detailFragment22"
+            app:destination="@id/detailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.search.presenter.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/usFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.us.presenter.UsFragment"
+        android:label="fragment_us"
+        tools:layout="@layout/fragment_us" >
+        <action
+            android:id="@+id/action_usFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/terminosFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.termsFragment.TerminosFragment"
+        android:label="fragment_terminos"
+        tools:layout="@layout/fragment_terminos" />
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.example.searchfriendsapp.ui.fragment.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment2_to_randomFragment"
+            app:destination="@id/randomFragment" />
+        <action
+            android:id="@+id/action_detailFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_detailFragment2_to_adoptFragment"
+            app:destination="@id/adoptFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adoptFragment"
+        android:name="com.example.searchfriendsapp.ui.fragment.adoptFragment.AdoptFragment"
+        android:label="fragment_adopt"
+        tools:layout="@layout/fragment_adopt" >
+        <action
+            android:id="@+id/action_adoptFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+        <action
+            android:id="@+id/action_adoptFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
